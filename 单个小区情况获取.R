@@ -11,7 +11,9 @@ getresblockinfo<-function(weburl){
 
 batresblock<-function(webroot){
   resblockinfo1<-c()
-  for (i in 1:363) {
+  weburl = sprintf("%s%d",webroot, 1)
+  json_data <- fromJSON(weburl)
+  for (i in 1:json_data$totalPage) {
     print(i)
     weburl = sprintf("%s%d",webroot, i)
     #weburl = sprintf("http://bj.lianjia.com/chengjiao/getinfo/?page=1&id=101100944547&type=resblock&p=%d",i)
